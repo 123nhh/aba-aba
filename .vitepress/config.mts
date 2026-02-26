@@ -3,7 +3,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: "aba-aba",
   description: "技术折腾与资源指南",
-  base: '/aba-aba/',
+  base: '/',
 
   themeConfig: {
     // ─── 导航栏 ───────────────────────────────────────

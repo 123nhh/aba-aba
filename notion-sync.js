@@ -143,18 +143,21 @@ async function sync() {
 
 // ── 站长页模板渲染 ────────────────────────────────────────────
 function writeAboutPage(notionContent) {
-  // 从 Notion 内容里提取各段落
-  const bioMatch      = notionContent.match(/简介[:：]\s*(.+)/m)
-  const tagsMatch     = notionContent.match(/标签[:：]\s*(.+)/m)
-  const aboutMatch    = notionContent.match(/关于这个站\n+([\s\S]+?)(?=\n##|$)/)
-  const contactMatch  = notionContent.match(/联系方式\n+([\s\S]+?)(?=\n##|$)/)
-  const techMatch     = notionContent.match(/技术栈\n+([\s\S]+?)(?=\n##|$)/)
+  const bioMatch     = notionContent.match(/简介[:：]\s*(.+)/m)
+  const tagsMatch    = notionContent.match(/标签[:：]\s*(.+)/m)
+  const idMatch      = notionContent.match(/ID[:：]\s*(.+)/m)
+  const avatarMatch  = notionContent.match(/头像[:：]\s*(.+)/m)
+  const aboutMatch   = notionContent.match(/## 关于这个站\n+([\s\S]+?)(?=\n##|$)/)
+  const contactMatch = notionContent.match(/## 联系方式\n+([\s\S]+?)(?=\n##|$)/)
+  const techMatch    = notionContent.match(/## 技术栈\n+([\s\S]+?)(?=\n##|$)/)
 
-  const bio     = bioMatch?.[1]?.trim()     || '折腾是第一生产力。喜欢把复杂的东西搞清楚，然后用最简单的话写出来。'
+  const bio     = bioMatch?.[1]?.trim()  || '折腾是第一生产力。喜欢把复杂的东西搞清楚，然后用最简单的话写出来。'
   const tags    = (tagsMatch?.[1]?.split(/[,，\s]+/).filter(Boolean)) || ['全栈开发', 'Linux', '自托管', '开源']
-  const about   = aboutMatch?.[1]?.trim()   || 'aba-aba 是一个记录折腾过程的地方。'
+  const uid     = idMatch?.[1]?.trim()   || '阿巴'
+  const avatar  = avatarMatch?.[1]?.trim() || '/avatar.png'
+  const about   = aboutMatch?.[1]?.trim() || 'aba-aba 是一个记录折腾过程的地方。'
   const contact = contactMatch?.[1]?.trim() || '| GitHub | [github.com/aba-aba-de](https://github.com/aba-aba-de) |\n| Email | hi@aba-aba.de |'
-  const tech    = techMatch?.[1]?.trim()    || '- [VitePress](https://vitepress.dev) — 静态站点生成器\n- [Cloudflare Pages](https://pages.cloudflare.com) — 托管与 CDN'
+  const tech    = techMatch?.[1]?.trim() || '- [VitePress](https://vitepress.dev) — 静态站点生成器\n- [Cloudflare Pages](https://pages.cloudflare.com) — 托管与 CDN'
 
   const tagSpans = tags.map(t => `  <span class="tag">${t.trim()}</span>`).join('\n')
 
@@ -163,9 +166,9 @@ function writeAboutPage(notionContent) {
 <div class="about-page">
 
 <div class="profile">
-  <div class="avatar">aba</div>
+  <img class="avatar" src="${avatar}" alt="${uid}" />
   <div class="profile-info">
-    <h2 class="name">阿巴</h2>
+    <h2 class="name">${uid}</h2>
     <p class="bio">${bio}</p>
     <div class="tags">
 ${tagSpans}
@@ -211,16 +214,9 @@ ${tech}
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-family: monospace;
-  font-weight: 600;
+  object-fit: cover;
   flex-shrink: 0;
-  letter-spacing: 0.05em;
+  background-color: var(--vp-c-bg-soft);
 }
 .profile-info { flex: 1; }
 .name {

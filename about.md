@@ -3,7 +3,7 @@
 <div class="about-page">
 
 <div class="profile">
-  <div class="avatar">aba</div>
+  <img class="avatar" src="/avatar.png" alt="阿巴" />
   <div class="profile-info">
     <h2 class="name">阿巴</h2>
     <p class="bio">折腾是第一生产力。喜欢把复杂的东西搞清楚，然后用最简单的话写出来。</p>
@@ -62,16 +62,9 @@ Email | hi@aba-aba.de
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background-color: var(--btn-primary-bg);
-  color: var(--btn-primary-text);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-family: monospace;
-  font-weight: 600;
+  object-fit: cover;
   flex-shrink: 0;
-  letter-spacing: 0.05em;
+  background-color: var(--vp-c-bg-soft);
 }
 .profile-info { flex: 1; }
 .name {

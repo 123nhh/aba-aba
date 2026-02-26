@@ -40,9 +40,6 @@
 |---|---|---|
 
 
-| Raycast | macOS 启动器，替代 Spotlight | [
-
-
 | Syncthing | 开源局域网/跨设备文件同步 | [GitHub](https://github.com/syncthing/syncthing) |
 
 
@@ -56,12 +53,6 @@
 
 
 |---|---|---|
-
-
-| Cloudflare WARP | 免费 VPN，改善部分地区网络质量 | [官网](https://1.1.1.1) |
-
-
-| Clash | 代理规则分流工具 | [GitHub](https://github.com/Dreamacro/clash) |
 
 
 | Nginx Proxy Manager | Docker 部署的可视化反向代理 | [官网](https://nginxproxymanager.com) |
@@ -104,17 +95,6 @@
 
 
 ```plain text
-# 反向代理
-nginx:alpine
-caddy:alpine
-
-# 数据库
-postgres:16-alpine
-redis:7-alpine
-
-# 监控
-ghcr.io/dgtlmoon/changedetection.io   # 网页变更监控
-prom/prometheus                         # Prometheus 监控
-grafana/grafana                         # 可视化面板
+暂无
 ```
 

@@ -25,7 +25,7 @@ async function sync() {
   const response = await notion.databases.query({
     database_id: DATABASE_ID,
     filter: {
-      property: 'Published',
+      property: '状态',
       checkbox: { equals: true },
     },
   })
@@ -35,9 +35,9 @@ async function sync() {
   for (const page of response.results) {
     const props = page.properties
 
-    const title = props.Name?.title?.[0]?.plain_text || 'untitled'
-    const slug = props.Slug?.rich_text?.[0]?.plain_text || slugify(title)
-    const category = props.Category?.select?.name || '其他'
+    const title = props['名称']?.title?.[0]?.plain_text || 'untitled'
+    const slug = props['Slug']?.rich_text?.[0]?.plain_text || slugify(title)
+    const category = props['Category']?.select?.name || '其他'
     const dir = CATEGORY_MAP[category] || 'posts'
 
     const mdBlocks = await n2m.pageToMarkdown(page.id)

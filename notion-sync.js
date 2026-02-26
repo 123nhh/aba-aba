@@ -20,8 +20,8 @@ const CATEGORY_MAP = {
 
 function categoryToDir(category) {
   if (CATEGORY_MAP[category]) return CATEGORY_MAP[category]
-  // 未知分类：自动转为小写英文目录，中文转拼音缩写用 slug
-  return `posts/${slugify(category)}`
+  // 未知分类：直接用分类名作为目录（保留中文）
+  return `posts/${category}`
 }
 
 function slugify(text) {

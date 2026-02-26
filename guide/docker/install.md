@@ -4,50 +4,69 @@
 
 ---
 
+
 ## 一键安装脚本
+
 
 Docker 官方提供了安装脚本，直接用最省事：
 
-```bash
+
+```plain text
 curl -fsSL https://get.docker.com | sh
 ```
 
+
 安装完成后把当前用户加入 docker 组，避免每次都要 sudo：
 
-```bash
+
+```plain text
 usermod -aG docker $USER
 newgrp docker
 ```
 
+
 ---
+
 
 ## 验证安装
 
-```bash
+
+```plain text
 docker --version
 docker run hello-world
 ```
 
-看到 `Hello from Docker!` 说明安装成功。
+
+看到 Hello from Docker! 说明安装成功。
+
 
 ---
+
 
 ## 安装 Docker Compose
 
+
 新版 Docker 已内置 Compose 插件：
 
-```bash
+
+```plain text
 docker compose version
 ```
 
+
 如果提示找不到命令，单独安装：
 
-```bash
+
+```plain text
 apt install -y docker-compose-plugin
 ```
 
+
 ---
+
 
 ## 下一步
 
+
 参考 [常用命令速查](./commands) 开始使用。
+

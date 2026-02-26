@@ -2,7 +2,7 @@ name: Sync Notion & Deploy
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 每小时整点触发
+    - cron: '*/30 * * * *'  # 每 30 分钟触发
   workflow_dispatch:       # 支持手动触发
 
 jobs:

@@ -1,10 +1,13 @@
 # Docker 常用命令速查
 
+
 ---
+
 
 ## 镜像
 
-```bash
+
+```plain text
 # 拉取镜像
 docker pull nginx
 
@@ -15,11 +18,14 @@ docker images
 docker rmi nginx
 ```
 
+
 ---
+
 
 ## 容器
 
-```bash
+
+```plain text
 # 运行容器（前台）
 docker run nginx
 
@@ -44,11 +50,14 @@ docker rm <容器ID>
 docker exec -it <容器ID> bash
 ```
 
+
 ---
+
 
 ## 日志
 
-```bash
+
+```plain text
 # 查看日志
 docker logs <容器ID>
 
@@ -59,11 +68,14 @@ docker logs -f <容器ID>
 docker logs --tail 100 <容器ID>
 ```
 
+
 ---
+
 
 ## Docker Compose
 
-```bash
+
+```plain text
 # 启动（后台）
 docker compose up -d
 
@@ -77,11 +89,14 @@ docker compose ps
 docker compose logs -f
 ```
 
+
 ---
+
 
 ## 清理
 
-```bash
+
+```plain text
 # 删除所有停止的容器
 docker container prune
 
@@ -91,3 +106,4 @@ docker image prune
 # 一键清理所有无用资源
 docker system prune -a
 ```
+

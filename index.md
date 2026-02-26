@@ -47,7 +47,7 @@ onMounted(() => {
     </h1>
     <p class="hero-subtitle">将折腾的乐趣与实用的资源，沉淀为清晰的知识脉络。</p>
     <div class="hero-actions">
-      <a href="/guide/steam/" class="btn-primary">开始阅读</a>
+      <a href="/posts/" class="btn-primary">开始阅读</a>
       <a href="/resources/awesome-list" class="btn-secondary">浏览资源</a>
     </div>
   </div>

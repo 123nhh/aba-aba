@@ -4,41 +4,55 @@
 
 ---
 
+
 ## SSH 登录
 
-```bash
+
+```plain text
 ssh root@你的服务器IP
 ```
 
+
 首次登录输入收到的初始密码，然后立即改密码：
 
-```bash
+
+```plain text
 passwd
 ```
 
+
 ---
+
 
 ## 更新系统
 
-```bash
+
+```plain text
 apt update && apt upgrade -y
 ```
 
+
 ---
+
 
 ## 安装常用工具
 
-```bash
+
+```plain text
 apt install -y curl wget git vim ufw htop
 ```
 
+
 ---
+
 
 ## 配置防火墙
 
+
 只开放必要端口，其余全部关闭：
 
-```bash
+
+```plain text
 # 默认拒绝所有入站
 ufw default deny incoming
 ufw default allow outgoing
@@ -54,22 +68,30 @@ ufw allow 443
 ufw enable
 ```
 
+
 ---
+
 
 ## 创建普通用户（可选但推荐）
 
+
 长期用 root 操作风险较高，建议创建普通用户：
 
-```bash
+
+```plain text
 adduser aba
 usermod -aG sudo aba
 ```
 
-之后用 `aba` 用户登录，需要权限时加 `sudo`。
+
+之后用 aba 用户登录，需要权限时加 sudo。
+
 
 ---
 
+
 ## 下一步
+
 
 服务器初始化完成后，可以：
 

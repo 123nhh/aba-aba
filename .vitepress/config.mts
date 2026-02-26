@@ -9,14 +9,12 @@ export default defineConfig({
     // ─── 导航栏 ───────────────────────────────────────
     nav: [
       { text: '首页', link: '/' },
-      {
-        text: '教程',
-        items: [
+      { text: '教程', items: [
           { text: 'Steam', link: '/guide/steam/' },
           { text: 'VPS', link: '/guide/vps/' },
           { text: 'Docker', link: '/guide/docker/' },
-        ]
-      },
+          { text: '建站', link: '/posts/建站/' },
+        ] },
       { text: '资源', link: '/resources/awesome-list' },
       { text: '站长', link: '/about' },
     ],
@@ -25,6 +23,7 @@ export default defineConfig({
     sidebar: [
       {
             text: 'Steam',
+            collapsed: false,
             items: [
                   {
                         text: '概览',
@@ -46,6 +45,7 @@ export default defineConfig({
       },
       {
             text: 'VPS',
+            collapsed: false,
             items: [
                   {
                         text: '概览',
@@ -63,6 +63,7 @@ export default defineConfig({
       },
       {
             text: 'Docker',
+            collapsed: false,
             items: [
                   {
                         text: '概览',
@@ -80,6 +81,7 @@ export default defineConfig({
       },
       {
             text: '资源',
+            collapsed: false,
             items: [
                   {
                         text: '精选资源',
@@ -89,6 +91,7 @@ export default defineConfig({
       },
       {
             text: '建站',
+            collapsed: false,
             items: [
                   {
                         text: 'cf SssS优选',

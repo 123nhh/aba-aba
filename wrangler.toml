@@ -1,0 +1,2 @@
+name = "aba-aba"
+pages_build_output_dir = ".vitepress/dist"

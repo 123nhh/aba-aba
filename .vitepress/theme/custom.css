@@ -1,0 +1,80 @@
+/* ============================================
+   亮色模式：米色底 + 灰黑字
+   ============================================ */
+:root {
+  --vp-c-bg: #f5f0e8;
+  --vp-c-bg-alt: #ede8df;
+  --vp-c-bg-elv: #faf7f2;
+  --vp-c-bg-soft: #ede8df;
+
+  --vp-c-text-1: #1c1a17;
+  --vp-c-text-2: #4a4640;
+  --vp-c-text-3: #7a7468;
+
+  --vp-c-border: #d6d0c4;
+  --vp-c-divider: #d6d0c4;
+  --vp-c-gutter: #d6d0c4;
+
+  --vp-nav-bg-color: #f5f0e8;
+  --vp-nav-screen-bg-color: #f5f0e8;
+  --vp-sidebar-bg-color: #ede8df;
+  --vp-local-nav-bg-color: #f5f0e8;
+
+  /* 页面自定义变量 */
+  --bg: #f5f0e8;
+  --text-main: #1c1a17;
+  --text-muted: #4a4640;
+  --text-dim: #7a7468;
+  --border: #d6d0c4;
+  --btn-primary-bg: #1c1a17;
+  --btn-primary-text: #f5f0e8;
+  --btn-primary-hover: #2e2b26;
+  --btn-secondary-text: #1c1a17;
+  --btn-secondary-border: #d6d0c4;
+  --btn-secondary-hover-border: #4a4640;
+}
+
+html, body {
+  background-color: var(--bg) !important;
+}
+
+/* ============================================
+   深色模式：深灰底 + 米白字
+   ============================================ */
+.dark {
+  --vp-c-bg: #1c1c1e;
+  --vp-c-bg-alt: #161618;
+  --vp-c-bg-elv: #232325;
+  --vp-c-bg-soft: #232325;
+
+  --vp-c-text-1: #e8e0d4;
+  --vp-c-text-2: #a89f96;
+  --vp-c-text-3: #7a7068;
+
+  --vp-c-border: #333335;
+  --vp-c-divider: #333335;
+  --vp-c-gutter: #333335;
+
+  --vp-nav-bg-color: #1c1c1e;
+  --vp-nav-screen-bg-color: #1c1c1e;
+  --vp-sidebar-bg-color: #161618;
+  --vp-local-nav-bg-color: #1c1c1e;
+
+  /* 页面自定义变量 */
+  --bg: #1c1c1e;
+  --text-main: #e8e0d4;
+  --text-muted: #a89f96;
+  --text-dim: #7a7068;
+  --border: #333335;
+  --btn-primary-bg: #e8e0d4;
+  --btn-primary-text: #1c1c1e;
+  --btn-primary-hover: #f5ede0;
+  --btn-secondary-text: #e8e0d4;
+  --btn-secondary-border: #333335;
+  --btn-secondary-hover-border: #a89f96;
+}
+
+.dark html,
+.dark body {
+  background-color: #1c1c1e !important;
+}

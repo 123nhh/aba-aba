@@ -24,64 +24,89 @@ export default defineConfig({
     // ─── 侧边栏（按路径分组）──────────────────────────
     sidebar: {
       '/guide/steam/': [
-        {
-          text: 'Steam',
-          items: [
-            { text: '概览', link: '/guide/steam/' },
-            { text: '下载与安装', link: '/guide/steam/install' },
-            { text: '加速方案对比', link: '/guide/steam/accelerator' },
-            { text: '购买避坑指南', link: '/guide/steam/purchase' },
-          ]
-        }
+            {
+                  'text': 'Steam',
+                  'items': [
+                        {
+                              'text': '概览',
+                              'link': '/guide/steam/'
+                        },
+                        {
+                              'text': 'Steam 加速方案对比',
+                              'link': '/guide/steam/accelerator'
+                        },
+                        {
+                              'text': '如何下载并安装 Steam',
+                              'link': '/guide/steam/install'
+                        },
+                        {
+                              'text': 'Steam 购买游戏避坑指南',
+                              'link': '/guide/steam/purchase'
+                        }
+                  ]
+            }
       ],
       '/guide/vps/': [
-        {
-          text: 'VPS',
-          items: [
-            { text: '概览', link: '/guide/vps/' },
-            { text: '选购指南', link: '/guide/vps/buy' },
-            { text: '初始化服务器', link: '/guide/vps/setup' },
-          ]
-        }
+            {
+                  'text': 'VPS',
+                  'items': [
+                        {
+                              'text': '概览',
+                              'link': '/guide/vps/'
+                        },
+                        {
+                              'text': 'VPS 选购指南',
+                              'link': '/guide/vps/buy'
+                        },
+                        {
+                              'text': '初始化服务器',
+                              'link': '/guide/vps/setup'
+                        }
+                  ]
+            }
       ],
       '/guide/docker/': [
-        {
-          text: 'Docker',
-          items: [
-            { text: '概览', link: '/guide/docker/' },
-            { text: '安装 Docker', link: '/guide/docker/install' },
-            { text: '常用命令速查', link: '/guide/docker/commands' },
-          ]
-        }
+            {
+                  'text': 'Docker',
+                  'items': [
+                        {
+                              'text': '概览',
+                              'link': '/guide/docker/'
+                        },
+                        {
+                              'text': 'Docker 常用命令速查',
+                              'link': '/guide/docker/commands'
+                        },
+                        {
+                              'text': '安装 Docker',
+                              'link': '/guide/docker/install'
+                        }
+                  ]
+            }
       ],
       '/resources/': [
-        {
-          text: '资源',
-          items: [
-            { text: '精选资源', link: '/resources/awesome-list' },
-          ]
-        }
+            {
+                  'text': '资源',
+                  'items': [
+                        {
+                              'text': '精选资源',
+                              'link': '/resources/awesome-list'
+                        }
+                  ]
+            }
       ],
-    },
-
-    // ─── 其他配置 ──────────────────────────────────────
-    socialLinks: [
-      { icon: 'github', link: 'https://github.com/aba-aba-de' }
-    ],
-
-    footer: {
-      message: '用阿巴阿巴的方式讲清楚',
-      copyright: 'aba-aba'
-    },
-
-    search: {
-      provider: 'local'
-    },
-
-    outline: {
-      label: '本页目录',
-      level: [2, 3]
-    },
+      '/posts/misc/': [
+            {
+                  'text': '建站',
+                  'items': [
+                        {
+                              'text': 'cf SssS优选',
+                              'link': '/posts/misc/SaaS'
+                        }
+                  ]
+            }
+      ]
+},
 
     docFooter: {
       prev: '上一篇',

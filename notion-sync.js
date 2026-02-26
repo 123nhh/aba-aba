@@ -129,34 +129,37 @@ function updateConfig(dirMap) {
   const configPath = path.resolve(__dirname, '.vitepress/config.mts')
   let config = fs.readFileSync(configPath, 'utf-8')
 
-  // 构建新的侧边栏对象
-  // 先提取固定侧边栏（非 posts 目录）
-  const fixedSidebars = {
-    '/guide/steam/': buildSidebarItems('guide/steam', 'Steam'),
-    '/guide/vps/': buildSidebarItems('guide/vps', 'VPS'),
-    '/guide/docker/': buildSidebarItems('guide/docker', 'Docker'),
-    '/resources/': buildSidebarItems('resources', '资源'),
+  // 固定分类
+  const fixedSections = [
+    { dir: 'guide/steam',  label: 'Steam' },
+    { dir: 'guide/vps',    label: 'VPS' },
+    { dir: 'guide/docker', label: 'Docker' },
+    { dir: 'resources',    label: '资源' },
+  ]
+
+  const sidebar = []
+
+  // 固定分类
+  for (const { dir, label } of fixedSections) {
+    const items = buildSidebarItems(dir, label)
+    if (items[0]?.items?.length) sidebar.push(...items)
   }
 
-  // 动态生成 posts 子目录侧边栏
-  const dynamicSidebars = {}
+  // 动态分类（posts/*）
   for (const [dir, info] of Object.entries(dirMap)) {
     if (dir.startsWith('posts/')) {
-      const key = `/${dir}/`
-      dynamicSidebars[key] = buildSidebarItems(dir, info.category)
+      const items = buildSidebarItems(dir, info.category)
+      if (items[0]?.items?.length) sidebar.push(...items)
     }
   }
 
-  const allSidebars = { ...fixedSidebars, ...dynamicSidebars }
+  // 序列化为 JS 对象字面量
+  const sidebarStr = JSON.stringify(sidebar, null, 6)
+    .replace(/"([^"]+)":/g, '$1:')
+    .replace(/"/g, "'")
 
-  // 生成侧边栏代码字符串
-  const sidebarStr = JSON.stringify(allSidebars, null, 6)
-    .replace(/"([^"]+)":/g, "'$1':")   // key 用单引号
-    .replace(/"/g, "'")                 // value 用单引号
-
-  // 替换 config 里的 sidebar 块
   const newConfig = config.replace(
-    /sidebar:\s*\{[\s\S]*?\n    \},/,
+    /sidebar:\s*\[[\s\S]*?\],/,
     `sidebar: ${sidebarStr},`
   )
 

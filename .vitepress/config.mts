@@ -21,92 +21,82 @@ export default defineConfig({
       { text: '站长', link: '/about' },
     ],
 
-    // ─── 侧边栏（按路径分组）──────────────────────────
-    sidebar: {
-      '/guide/steam/': [
-            {
-                  'text': 'Steam',
-                  'items': [
-                        {
-                              'text': '概览',
-                              'link': '/guide/steam/'
-                        },
-                        {
-                              'text': 'Steam 加速方案对比',
-                              'link': '/guide/steam/accelerator'
-                        },
-                        {
-                              'text': '如何下载并安装 Steam',
-                              'link': '/guide/steam/install'
-                        },
-                        {
-                              'text': 'Steam 购买游戏避坑指南',
-                              'link': '/guide/steam/purchase'
-                        }
-                  ]
-            }
-      ],
-      '/guide/vps/': [
-            {
-                  'text': 'VPS',
-                  'items': [
-                        {
-                              'text': '概览',
-                              'link': '/guide/vps/'
-                        },
-                        {
-                              'text': 'VPS 选购指南',
-                              'link': '/guide/vps/buy'
-                        },
-                        {
-                              'text': '初始化服务器',
-                              'link': '/guide/vps/setup'
-                        }
-                  ]
-            }
-      ],
-      '/guide/docker/': [
-            {
-                  'text': 'Docker',
-                  'items': [
-                        {
-                              'text': '概览',
-                              'link': '/guide/docker/'
-                        },
-                        {
-                              'text': 'Docker 常用命令速查',
-                              'link': '/guide/docker/commands'
-                        },
-                        {
-                              'text': '安装 Docker',
-                              'link': '/guide/docker/install'
-                        }
-                  ]
-            }
-      ],
-      '/resources/': [
-            {
-                  'text': '资源',
-                  'items': [
-                        {
-                              'text': '精选资源',
-                              'link': '/resources/awesome-list'
-                        }
-                  ]
-            }
-      ],
-      '/posts/misc/': [
-            {
-                  'text': '建站',
-                  'items': [
-                        {
-                              'text': 'cf SssS优选',
-                              'link': '/posts/misc/SaaS'
-                        }
-                  ]
-            }
-      ]
-},
+    // ─── 侧边栏（全局，显示所有分类）─────────────────
+    sidebar: [
+      {
+            text: 'Steam',
+            items: [
+                  {
+                        text: '概览',
+                        link: '/guide/steam/'
+                  },
+                  {
+                        text: 'Steam 加速方案对比',
+                        link: '/guide/steam/accelerator'
+                  },
+                  {
+                        text: '如何下载并安装 Steam',
+                        link: '/guide/steam/install'
+                  },
+                  {
+                        text: 'Steam 购买游戏避坑指南',
+                        link: '/guide/steam/purchase'
+                  }
+            ]
+      },
+      {
+            text: 'VPS',
+            items: [
+                  {
+                        text: '概览',
+                        link: '/guide/vps/'
+                  },
+                  {
+                        text: 'VPS 选购指南',
+                        link: '/guide/vps/buy'
+                  },
+                  {
+                        text: '初始化服务器',
+                        link: '/guide/vps/setup'
+                  }
+            ]
+      },
+      {
+            text: 'Docker',
+            items: [
+                  {
+                        text: '概览',
+                        link: '/guide/docker/'
+                  },
+                  {
+                        text: 'Docker 常用命令速查',
+                        link: '/guide/docker/commands'
+                  },
+                  {
+                        text: '安装 Docker',
+                        link: '/guide/docker/install'
+                  }
+            ]
+      },
+      {
+            text: '资源',
+            items: [
+                  {
+                        text: '精选资源',
+                        link: '/resources/awesome-list'
+                  }
+            ]
+      },
+      {
+            text: '建站',
+            items: [
+                  {
+                        text: 'cf SssS优选',
+                        link: '/posts/建站/SaaS'
+                  }
+            ]
+      }
+],
 
     docFooter: {
       prev: '上一篇',

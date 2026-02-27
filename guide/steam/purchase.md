@@ -22,21 +22,6 @@
 
 Steam 游戏 key 可以在第三方平台购买后激活，通常比官方便宜。
 
-
-| 平台 | 特点 |
-
-
-|---|---|
-
-
-| [Fanatical](https://www.fanatical.com) | 老牌正规，经常打折 |
-
-
-| [Humble Bundle](https://www.humblebundle.com) | 捆绑包，买一堆送慈善 |
-
-
-| [G2A](https://www.g2a.com) | 价格最低，但存在灰色 key 风险 |
-
 > G2A 警告：G2A 上的 key 来源复杂，可能是用盗刷信用卡购买的，激活后可能被封。非必要不建议使用。
 
 ---

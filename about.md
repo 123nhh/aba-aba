@@ -3,15 +3,14 @@
 <div class="about-page">
 
 <div class="profile">
-  <img class="avatar" src="/avatar.png" alt="阿巴" />
+  <img class="avatar" src="/avatar.png" alt="123nhh" />
   <div class="profile-info">
-    <h2 class="name">阿巴</h2>
+    <h2 class="name">123nhh</h2>
     <p class="bio">折腾是第一生产力。喜欢把复杂的东西搞清楚，然后用最简单的话写出来。</p>
     <div class="tags">
-  <span class="tag">全栈开发</span>
-  <span class="tag">Linux</span>
-  <span class="tag">自托管</span>
-  <span class="tag">开源</span>
+  <span class="tag">?</span>
+  <span class="tag">…</span>
+  <span class="tag">阿巴</span>
     </div>
   </div>
 </div>
@@ -22,19 +21,16 @@
 
 aba-aba 是一个记录折腾过程的地方。内容没有固定方向，什么折腾了就写什么——可能是一篇部署教程，可能是一个用了很久才发现的好工具，也可能只是一个踩坑记录。
 
-
-写作原则只有一条：写给一年前的自己看。那时候不懂的，现在写清楚。
-
 ---
 
 ## 联系方式
 
 | 平台 | 地址 |
 |---|---|
-GitHub | [github.com/aba-aba-de](https://github.com/aba-aba-de)
+GitHub | [github.com/123nhh](https://github.com/123nhh)
 
 
-Email | hi@aba-aba.de
+Email | 123nhhawa@gmail.com
 
 ---
 

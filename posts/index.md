@@ -9,7 +9,7 @@ layout: page
   </div>
 
   <div class="posts-section">
-    <div class="section-label">Steam</div>
+    <h2 class="section-label">Steam</h2>
     <div class="posts-grid">
       <a href="/guide/steam/accelerator" class="post-card">
         <span class="post-card-title">Steam 加速方案对比</span>
@@ -27,7 +27,7 @@ layout: page
   </div>
 
   <div class="posts-section">
-    <div class="section-label">VPS</div>
+    <h2 class="section-label">VPS</h2>
     <div class="posts-grid">
       <a href="/guide/vps/buy" class="post-card">
         <span class="post-card-title">VPS 选购指南</span>
@@ -41,7 +41,7 @@ layout: page
   </div>
 
   <div class="posts-section">
-    <div class="section-label">Docker</div>
+    <h2 class="section-label">Docker</h2>
     <div class="posts-grid">
       <a href="/guide/docker/commands" class="post-card">
         <span class="post-card-title">Docker 常用命令速查</span>
@@ -55,7 +55,7 @@ layout: page
   </div>
 
   <div class="posts-section">
-    <div class="section-label">建站</div>
+    <h2 class="section-label">建站</h2>
     <div class="posts-grid">
       <a href="/posts/建站/SaaS" class="post-card">
         <span class="post-card-title">cf SssS优选</span>
@@ -74,20 +74,20 @@ layout: page
 .posts-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 5rem 2rem 6rem;
+  padding: 5rem 2rem 6rem;  /* 80px / 32px / 96px */
 }
 
 .posts-header {
-  margin-bottom: 4rem;
+  margin-bottom: 4rem;  /* 64px */
   border-bottom: 1px solid var(--border);
-  padding-bottom: 2rem;
+  padding-bottom: 2rem;  /* 32px */
 }
 
 .posts-title {
   font-size: 2rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.5rem;  /* 8px */
   letter-spacing: 0.02em;
 }
 
@@ -99,7 +99,7 @@ layout: page
 }
 
 .posts-section {
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.5rem;  /* 40px — 8px grid */
 }
 
 .section-label {
@@ -108,14 +108,15 @@ layout: page
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  font-family: monospace;
-  margin-bottom: 0.9rem;
+  font-family: var(--font-mono, monospace);
+  margin: 0 0 0.75rem;  /* 12px */
+  border: none;
+  padding: 0;
 }
 
 .posts-grid {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-top: 1px solid var(--border);
 }
 
@@ -123,14 +124,15 @@ layout: page
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 0;
+  padding: 0.875rem 0;  /* 14px — close to 8px grid */
   border-bottom: 1px solid var(--border);
   text-decoration: none;
-  transition: padding-left 0.2s ease;
+  /* transform 代替 padding-left，避免 layout reflow */
+  transition: transform 0.2s ease;
 }
 
 .post-card:hover {
-  padding-left: 0.5rem;
+  transform: translateX(6px);
 }
 
 .post-card-title {
@@ -149,17 +151,17 @@ layout: page
 }
 
 .post-card:hover .post-card-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
   color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
   .posts-page {
-    padding: 3.5rem 1.25rem 4rem;
+    padding: 3.5rem 1.5rem 4rem;
   }
 
   .posts-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;  /* 24px */
   }
 }
 </style>

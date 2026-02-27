@@ -1,4 +1,18 @@
 /* ============================================
+   字体栈
+   ============================================ */
+:root {
+  --font-sans: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei",
+               -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace,
+               SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+/* ============================================
    亮色模式：米色底 + 灰黑字
    ============================================ */
 :root {
@@ -9,7 +23,7 @@
 
   --vp-c-text-1: #1c1a17;
   --vp-c-text-2: #4a4640;
-  --vp-c-text-3: #7a7468;
+  --vp-c-text-3: #6b6560;
 
   --vp-c-border: #d6d0c4;
   --vp-c-divider: #d6d0c4;
@@ -20,11 +34,14 @@
   --vp-sidebar-bg-color: #ede8df;
   --vp-local-nav-bg-color: #f5f0e8;
 
+  --vp-font-family-base: var(--font-sans);
+  --vp-font-family-mono: var(--font-mono);
+
   /* 页面自定义变量 */
   --bg: #f5f0e8;
   --text-main: #1c1a17;
   --text-muted: #4a4640;
-  --text-dim: #7a7468;
+  --text-dim: #6b6560;   /* 原 #7a7468，提升至 4.6:1，通过 WCAG AA */
   --border: #d6d0c4;
   --btn-primary-bg: #1c1a17;
   --btn-primary-text: #f5f0e8;
@@ -49,7 +66,7 @@ html, body {
 
   --vp-c-text-1: #e8e0d4;
   --vp-c-text-2: #a89f96;
-  --vp-c-text-3: #7a7068;
+  --vp-c-text-3: #8c8480;
 
   --vp-c-border: #333335;
   --vp-c-divider: #333335;
@@ -64,7 +81,7 @@ html, body {
   --bg: #1c1c1e;
   --text-main: #e8e0d4;
   --text-muted: #a89f96;
-  --text-dim: #7a7068;
+  --text-dim: #8c8480;   /* 原 #7a7068，提升至 4.7:1，通过 WCAG AA */
   --border: #333335;
   --btn-primary-bg: #e8e0d4;
   --btn-primary-text: #1c1c1e;

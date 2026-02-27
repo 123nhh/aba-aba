@@ -383,7 +383,7 @@ function generateIndex(dirMap) {
     ).join('\n')
     return (
       `  <div class="posts-section">\n` +
-      `    <div class="section-label">${label}</div>\n` +
+      `    <h2 class="section-label">${label}</h2>\n` +
       `    <div class="posts-grid">\n` +
       `${cards}\n` +
       `    </div>\n` +
@@ -428,7 +428,7 @@ ${sectionsHtml}
   font-size: 2rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 0 0 0.6rem;
+  margin: 0 0 0.5rem;
   letter-spacing: 0.02em;
 }
 
@@ -440,7 +440,7 @@ ${sectionsHtml}
 }
 
 .posts-section {
-  margin-bottom: 2.75rem;
+  margin-bottom: 2.5rem;
 }
 
 .section-label {
@@ -449,14 +449,15 @@ ${sectionsHtml}
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-dim);
-  font-family: monospace;
-  margin-bottom: 0.9rem;
+  font-family: var(--font-mono, monospace);
+  margin: 0 0 0.75rem;
+  border: none;
+  padding: 0;
 }
 
 .posts-grid {
   display: flex;
   flex-direction: column;
-  gap: 0;
   border-top: 1px solid var(--border);
 }
 
@@ -464,14 +465,14 @@ ${sectionsHtml}
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.85rem 0;
+  padding: 0.875rem 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
-  transition: padding-left 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .post-card:hover {
-  padding-left: 0.5rem;
+  transform: translateX(6px);
 }
 
 .post-card-title {
@@ -490,17 +491,17 @@ ${sectionsHtml}
 }
 
 .post-card:hover .post-card-arrow {
-  transform: translateX(3px);
+  transform: translateX(4px);
   color: var(--text-muted);
 }
 
 @media (max-width: 768px) {
   .posts-page {
-    padding: 3.5rem 1.25rem 4rem;
+    padding: 3.5rem 1.5rem 4rem;
   }
 
   .posts-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 }
 </style>

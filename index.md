@@ -82,7 +82,7 @@ onMounted(() => {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 7rem 1.5rem 5rem;
+  padding: 7rem 1.5rem 4rem;  /* 8px grid: 112px / 24px / 64px */
   text-align: center;
 }
 
@@ -96,7 +96,7 @@ onMounted(() => {
   font-weight: 600;
   color: var(--text-main);
   letter-spacing: 0.05em;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;  /* 16px */
   line-height: 1.2;
 }
 
@@ -115,7 +115,7 @@ onMounted(() => {
   font-size: 1.1rem;
   color: var(--text-muted);
   max-width: 520px;
-  margin: 0 auto 2.5rem;
+  margin: 0 auto 2.5rem;  /* 40px — 8px grid */
   line-height: 1.9;
   font-weight: 300;
 }
@@ -123,21 +123,21 @@ onMounted(() => {
 /* ---------- 按钮 ---------- */
 .hero-actions {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.75rem;  /* 12px */
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .hero-actions a {
   display: inline-block;
-  padding: 0.65rem 1.75rem;
+  padding: 0.625rem 1.75rem;  /* 10px 28px — 8px grid */
   border-radius: 6px;
   font-size: 0.9rem;
   font-weight: 500;
   text-decoration: none;
   line-height: 1.5;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   border: 1px solid transparent;
 }
 
@@ -151,7 +151,7 @@ onMounted(() => {
   background-color: var(--btn-primary-hover);
   border-color: var(--btn-primary-hover);
   color: var(--btn-primary-text);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 .btn-secondary {
@@ -170,14 +170,14 @@ onMounted(() => {
 .clean-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0 3rem;
+  gap: 0 3rem;  /* 48px — 8px grid */
   max-width: 960px;
   margin: 0 auto;
-  padding: 0 2rem 6rem;
+  padding: 0 2rem 6rem;  /* 32px / 96px — 8px grid */
 }
 
 .feature-card {
-  padding-top: 1.5rem;
+  padding-top: 1.5rem;  /* 24px */
   border-top: 1px solid var(--border);
   transition: border-color 0.25s ease;
 }
@@ -189,15 +189,15 @@ onMounted(() => {
 .feature-icon {
   font-size: 0.8rem;
   color: var(--text-dim);
-  margin-bottom: 1.25rem;
-  font-family: monospace;
+  margin-bottom: 1rem;  /* 16px */
+  font-family: var(--font-mono, monospace);
   letter-spacing: 0.05em;
 }
 
 .feature-card h3 {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-main);
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.75rem;  /* 12px */
   font-weight: 500;
 }
 
@@ -211,7 +211,7 @@ onMounted(() => {
 /* ---------- 手机端响应式 ---------- */
 @media (max-width: 768px) {
   .clean-hero {
-    padding: 5rem 1.25rem 3.5rem;
+    padding: 4rem 1.5rem 3rem;  /* 64px / 24px / 48px */
   }
 
   .hero-title {
@@ -221,7 +221,7 @@ onMounted(() => {
 
   .hero-subtitle {
     font-size: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2rem;  /* 32px */
   }
 
   .hero-actions {
@@ -237,8 +237,8 @@ onMounted(() => {
 
   .clean-features {
     grid-template-columns: 1fr;
-    gap: 2rem;
-    padding: 0 1.25rem 4rem;
+    gap: 2rem;  /* 32px */
+    padding: 0 1.5rem 4rem;
   }
 }
 

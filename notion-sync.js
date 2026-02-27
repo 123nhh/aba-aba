@@ -31,22 +31,84 @@ function slugify(text) {
 // ── 解析 Notion blocks ──────────────────────────────────────
 async function resolveBlocks(mdBlocks, pageId) {
   const str = n2m.toMarkdownString(mdBlocks)
-  if (str && str.parent && str.parent.trim()) return str.parent
+  if (str && str.parent && str.parent.trim()) {
+    return await enrichWithTables(str.parent, pageId)
+  }
+  return await blocksToMarkdown(pageId)
+}
+
+// 按原始块顺序重建 Markdown，表格插入正确位置
+async function enrichWithTables(md, pageId) {
+  try {
+    const blocks = await notion.blocks.children.list({ block_id: pageId })
+    const hasTable = blocks.results.some(b => b.type === 'table')
+    if (!hasTable) return md
+
+    // 重新按顺序构建，n2m 输出的非表格内容 + 表格按位置插入
+    const parts = []
+    for (const block of blocks.results) {
+      if (block.type === 'table') {
+        parts.push(await tableToMarkdown(block.id))
+      } else {
+        // 用 n2m 单独转换此 block
+        try {
+          const mdBlocks = await n2m.blocksToMarkdown([block])
+          const str = n2m.toMarkdownString(mdBlocks)
+          if (str?.parent?.trim()) parts.push(str.parent.trim())
+        } catch {
+          const t = extractText(block)
+          if (t) parts.push(t)
+        }
+      }
+    }
+    return parts.join('\n\n') || md
+  } catch {
+    return md
+  }
+}
+
+async function tableToMarkdown(tableBlockId) {
+  const rows = await notion.blocks.children.list({ block_id: tableBlockId })
+  const lines = []
+  rows.results.forEach((row, i) => {
+    const cells = row.table_row.cells.map(cell =>
+      cell.map(rt => {
+        let text = rt.plain_text
+        if (rt.href) text = `[${text}](${rt.href})`
+        if (rt.annotations?.bold) text = `**${text}**`
+        if (rt.annotations?.code) text = `\`${text}\``
+        return text
+      }).join('')
+    )
+    lines.push(`| ${cells.join(' | ')} |`)
+    if (i === 0) lines.push(`| ${cells.map(() => '---').join(' | ')} |`)
+  })
+  return lines.join('\n')
+}
+
+async function blocksToMarkdown(pageId) {
   try {
     const blocks = await notion.blocks.children.list({ block_id: pageId })
     const lines = []
     for (const block of blocks.results) {
-      const text = extractText(block)
-      if (text) lines.push(text)
-      if (block.type === 'synced_block') {
+      if (block.type === 'table') {
+        lines.push(await tableToMarkdown(block.id))
+      } else if (block.type === 'synced_block') {
         const sourceId = block.synced_block?.synced_from?.block_id || block.id
         try {
           const inner = await notion.blocks.children.list({ block_id: sourceId })
           for (const b of inner.results) {
-            const t = extractText(b)
-            if (t) lines.push(t)
+            if (b.type === 'table') {
+              lines.push(await tableToMarkdown(b.id))
+            } else {
+              const t = extractText(b)
+              if (t) lines.push(t)
+            }
           }
         } catch {}
+      } else {
+        const t = extractText(block)
+        if (t) lines.push(t)
       }
     }
     return lines.join('\n\n') || '*（暂无内容）*'

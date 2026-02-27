@@ -2,25 +2,164 @@
 layout: page
 ---
 
-# 所有文章
+<div class="posts-page">
+  <div class="posts-header">
+    <h1 class="posts-title">所有文章</h1>
+    <p class="posts-desc">记录折腾的过程，沉淀可复用的知识。</p>
+  </div>
 
-## Steam
+  <div class="posts-section">
+    <div class="section-label">Steam</div>
+    <div class="posts-grid">
+      <a href="/guide/steam/accelerator" class="post-card">
+        <span class="post-card-title">Steam 加速方案对比</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+      <a href="/guide/steam/install" class="post-card">
+        <span class="post-card-title">如何下载并安装 Steam</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+      <a href="/guide/steam/purchase" class="post-card">
+        <span class="post-card-title">Steam 购买游戏避坑指南</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-- [Steam 加速方案对比](/guide/steam/accelerator)
-- [如何下载并安装 Steam](/guide/steam/install)
-- [Steam 购买游戏避坑指南](/guide/steam/purchase)
+  <div class="posts-section">
+    <div class="section-label">VPS</div>
+    <div class="posts-grid">
+      <a href="/guide/vps/buy" class="post-card">
+        <span class="post-card-title">VPS 选购指南</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+      <a href="/guide/vps/setup" class="post-card">
+        <span class="post-card-title">初始化服务器</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-## VPS
+  <div class="posts-section">
+    <div class="section-label">Docker</div>
+    <div class="posts-grid">
+      <a href="/guide/docker/commands" class="post-card">
+        <span class="post-card-title">Docker 常用命令速查</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+      <a href="/guide/docker/install" class="post-card">
+        <span class="post-card-title">安装 Docker</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
 
-- [VPS 选购指南](/guide/vps/buy)
-- [初始化服务器](/guide/vps/setup)
+  <div class="posts-section">
+    <div class="section-label">建站</div>
+    <div class="posts-grid">
+      <a href="/posts/建站/SaaS" class="post-card">
+        <span class="post-card-title">cf SssS优选</span>
+        <span class="post-card-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</div>
 
-## Docker
+<style>
+.VPPage {
+  background-color: var(--bg);
+  min-height: 100vh;
+}
 
-- [Docker 常用命令速查](/guide/docker/commands)
-- [安装 Docker](/guide/docker/install)
+.posts-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+}
 
-## 建站
+.posts-header {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+}
 
-- [cf SssS优选](/posts/建站/SaaS)
+.posts-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.02em;
+}
 
+.posts-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 300;
+}
+
+.posts-section {
+  margin-bottom: 2.75rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: monospace;
+  margin-bottom: 0.9rem;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: padding-left 0.2s ease;
+}
+
+.post-card:hover {
+  padding-left: 0.5rem;
+}
+
+.post-card-title {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.post-card-arrow {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.post-card:hover .post-card-arrow {
+  transform: translateX(3px);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .posts-page {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .posts-title {
+    font-size: 1.6rem;
+  }
+}
+</style>

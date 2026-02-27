@@ -360,33 +360,151 @@ function generateIndex(dirMap) {
     { dir: 'guide/docker', label: 'Docker' },
   ]
 
-  let md = `---\nlayout: page\n---\n\n# 所有文章\n\n`
-
-  // 固定分类
+  // 收集所有分类
+  const sections = []
   for (const { dir, label } of fixedSections) {
-    const fullDir = path.resolve(__dirname, dir)
-    if (!fs.existsSync(fullDir)) continue
     const files = getFiles(dir)
-    if (!files.length) continue
-    md += `## ${label}\n\n`
-    for (const { title, link } of files) {
-      md += `- [${title}](${link})\n`
-    }
-    md += '\n'
+    if (files.length) sections.push({ label, files })
   }
-
-  // 动态分类
   for (const [dir, info] of Object.entries(dirMap)) {
     if (dir.startsWith('posts/')) {
       const files = getFiles(dir)
-      if (!files.length) continue
-      md += `## ${info.category}\n\n`
-      for (const { title, link } of files) {
-        md += `- [${title}](${link})\n`
-      }
-      md += '\n'
+      if (files.length) sections.push({ label: info.category, files })
     }
   }
+
+  // 渲染分类区块
+  function renderSection({ label, files }) {
+    const cards = files.map(({ title, link }) =>
+      `      <a href="${link}" class="post-card">\n` +
+      `        <span class="post-card-title">${title}</span>\n` +
+      `        <span class="post-card-arrow">→</span>\n` +
+      `      </a>`
+    ).join('\n')
+    return (
+      `  <div class="posts-section">\n` +
+      `    <div class="section-label">${label}</div>\n` +
+      `    <div class="posts-grid">\n` +
+      `${cards}\n` +
+      `    </div>\n` +
+      `  </div>`
+    )
+  }
+
+  const sectionsHtml = sections.map(renderSection).join('\n\n')
+
+  const md = `---
+layout: page
+---
+
+<div class="posts-page">
+  <div class="posts-header">
+    <h1 class="posts-title">所有文章</h1>
+    <p class="posts-desc">记录折腾的过程，沉淀可复用的知识。</p>
+  </div>
+
+${sectionsHtml}
+</div>
+
+<style>
+.VPPage {
+  background-color: var(--bg);
+  min-height: 100vh;
+}
+
+.posts-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 5rem 2rem 6rem;
+}
+
+.posts-header {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+}
+
+.posts-title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0 0 0.6rem;
+  letter-spacing: 0.02em;
+}
+
+.posts-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin: 0;
+  font-weight: 300;
+}
+
+.posts-section {
+  margin-bottom: 2.75rem;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  font-family: monospace;
+  margin-bottom: 0.9rem;
+}
+
+.posts-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.post-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--border);
+  text-decoration: none;
+  transition: padding-left 0.2s ease;
+}
+
+.post-card:hover {
+  padding-left: 0.5rem;
+}
+
+.post-card-title {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.post-card-arrow {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  flex-shrink: 0;
+  margin-left: 1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.post-card:hover .post-card-arrow {
+  transform: translateX(3px);
+  color: var(--text-muted);
+}
+
+@media (max-width: 768px) {
+  .posts-page {
+    padding: 3.5rem 1.25rem 4rem;
+  }
+
+  .posts-title {
+    font-size: 1.6rem;
+  }
+}
+</style>
+`
 
   fs.mkdirSync(path.resolve(__dirname, 'posts'), { recursive: true })
   fs.writeFileSync(path.resolve(__dirname, 'posts/index.md'), md, 'utf-8')

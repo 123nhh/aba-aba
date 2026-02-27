@@ -74,20 +74,20 @@ layout: page
 .posts-page {
   max-width: 800px;
   margin: 0 auto;
-  padding: 5rem 2rem 6rem;  /* 80px / 32px / 96px */
+  padding: 5rem 2rem 6rem;
 }
 
 .posts-header {
-  margin-bottom: 4rem;  /* 64px */
+  margin-bottom: 4rem;
   border-bottom: 1px solid var(--border);
-  padding-bottom: 2rem;  /* 32px */
+  padding-bottom: 2rem;
 }
 
 .posts-title {
   font-size: 2rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 0 0 0.5rem;  /* 8px */
+  margin: 0 0 0.5rem;
   letter-spacing: 0.02em;
 }
 
@@ -99,7 +99,7 @@ layout: page
 }
 
 .posts-section {
-  margin-bottom: 2.5rem;  /* 40px — 8px grid */
+  margin-bottom: 2.5rem;
 }
 
 .section-label {
@@ -109,7 +109,7 @@ layout: page
   text-transform: uppercase;
   color: var(--text-dim);
   font-family: var(--font-mono, monospace);
-  margin: 0 0 0.75rem;  /* 12px */
+  margin: 0 0 0.75rem;
   border: none;
   padding: 0;
 }
@@ -124,10 +124,9 @@ layout: page
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.875rem 0;  /* 14px — close to 8px grid */
+  padding: 0.875rem 0;
   border-bottom: 1px solid var(--border);
   text-decoration: none;
-  /* transform 代替 padding-left，避免 layout reflow */
   transition: transform 0.2s ease;
 }
 
@@ -161,7 +160,7 @@ layout: page
   }
 
   .posts-title {
-    font-size: 1.5rem;  /* 24px */
+    font-size: 1.5rem;
   }
 }
 </style>
